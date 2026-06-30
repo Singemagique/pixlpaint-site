@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PixlPaint — Pixel Color-by-Number for Kids</title>
+<meta name="description" content="PixlPaint is a calm, ad-free pixel color-by-number app for kids. Hundreds of pictures to color, a make-from-photo tool, and optional themed packs. No ads, no tracking, fully offline." />
+<link rel="icon" type="image/png" href="assets/icon.png" />
+<!-- Open Graph / social preview -->
+<meta property="og:title" content="PixlPaint — Pixel Color-by-Number for Kids" />
+<meta property="og:description" content="A calm, ad-free coloring app for kids. Tap a number, fill a pixel. No ads, no tracking, fully offline." />
+<meta property="og:image" content="https://pixlpaintapp.com/assets/showcase.png" />
+<meta property="og:url" content="https://pixlpaintapp.com" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #101019; --bg2: #16161f; --card: #1c1c2e; --line: rgba(255,255,255,0.10);
+    --text: #ececf3; --dim: #a9abc4; --mute: #76768c;
+    --purple: #b388ff; --cyan: #08D9D6; --yellow: #ffd166; --green: #6ee7a8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 22px; }
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* hero */
+  .hero { text-align: center; padding: 64px 0 28px; }
+  .icon { width: 104px; height: 104px; border-radius: 24px; box-shadow: 0 10px 40px rgba(179,136,255,0.25); }
+  .word { font-family: "Press Start 2P", monospace; font-size: 34px; letter-spacing: 1px; margin: 22px 0 6px;
+    background: linear-gradient(90deg, var(--purple), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tag { font-size: 21px; font-weight: 800; color: #fff; margin: 6px 0; }
+  .blurb { font-size: 17px; color: var(--dim); max-width: 560px; margin: 10px auto 22px; }
+  .badge { display: inline-flex; align-items: center; gap: 9px; padding: 12px 20px; border-radius: 30px;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--line); color: var(--text); font-weight: 700; font-size: 15px; }
+  .badge .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+
+  .showcase { width: 100%; border-radius: 18px; margin: 36px 0 8px; display: block; }
+
+  /* sections */
+  section { padding: 40px 0; }
+  h2 { font-size: 27px; text-align: center; margin: 0 0 6px; color: #fff; }
+  .sub { text-align: center; color: var(--dim); margin: 0 auto 30px; max-width: 560px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(228px, 1fr)); gap: 16px; }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .feature .emoji { font-size: 30px; }
+  .feature h3 { margin: 12px 0 6px; font-size: 18px; color: #fff; }
+  .feature p { margin: 0; color: var(--dim); font-size: 15px; }
+
+  .packs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  .pack { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .pack img { width: 100%; display: block; background: var(--bg); }
+  .pack .body { padding: 16px 18px 20px; }
+  .pack h3 { margin: 0 0 4px; font-size: 18px; color: #fff; }
+  .pack p { margin: 0; color: var(--dim); font-size: 14.5px; }
+
+  .parents { background: linear-gradient(180deg, var(--bg2), var(--bg)); border: 1px solid var(--line); border-radius: 20px; padding: 34px; }
+  .checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px 26px; margin-top: 18px; }
+  .check { display: flex; gap: 11px; align-items: flex-start; }
+  .check .tick { color: var(--green); font-weight: 800; flex: none; }
+  .check b { color: #fff; }
+  .check span { color: var(--dim); }
+
+  footer { border-top: 1px solid var(--line); margin-top: 30px; padding: 30px 0 60px; text-align: center; color: var(--mute); font-size: 14px; }
+  footer a { color: var(--dim); }
+  footer .links { margin-bottom: 10px; }
+  footer .links a { margin: 0 12px; }
+
+  @media (max-width: 640px) {
+    .word { font-size: 24px; } .tag { font-size: 18px; } .blurb { font-size: 16px; }
+    .packs { grid-template-columns: 1fr; } h2 { font-size: 23px; } .parents { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="hero">
+      <img class="icon" src="assets/icon.png" alt="PixlPaint app icon" />
+      <div class="word">PIXLPAINT</div>
+      <div class="tag">Pixel color-by-number, made for kids</div>
+      <p class="blurb">Tap a number, fill a pixel, and watch a picture come to life — one little square at a time. Calm, ad-free, and completely offline.</p>
+      <span class="badge"><span class="dot"></span> Coming soon to the App&nbsp;Store</span>
+      <!-- When live, replace the badge above with the official App Store download badge linking to your listing. -->
+      <img class="showcase" src="assets/showcase.png" alt="A grid of colorful pixel-art pictures you can color in PixlPaint" />
+    </header>
+
+    <section>
+      <h2>Color, one pixel at a time</h2>
+      <p class="sub">Simple enough for little ones, with room to grow.</p>
+      <div class="grid">
+        <div class="feature"><div class="emoji">🎨</div><h3>Color by number</h3><p>Every cell shows its number — just tap to fill it in. No mess, no mistakes.</p></div>
+        <div class="feature"><div class="emoji">🖼️</div><h3>Hundreds of pictures</h3><p>Animals, food, vehicles, nature and more — with new pictures added over time.</p></div>
+        <div class="feature"><div class="emoji">📷</div><h3>Make from a photo</h3><p>Turn a picture from the library into a coloring page, right on the device.</p></div>
+        <div class="feature"><div class="emoji">🔍</div><h3>Adjustable detail</h3><p>A detail dial makes any picture as easy or as challenging as you like.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Themed picture packs</h2>
+      <p class="sub">Love a theme? Unlock extra collections — a one-time purchase, yours to keep. A grown-up confirms every purchase.</p>
+      <div class="packs">
+        <div class="pack"><img src="assets/pack-dino.png" alt="Dino World pack — 20 dinosaur pictures" /><div class="body"><h3>Dino World</h3><p>20 dinosaurs &amp; prehistoric friends — T-Rex, Triceratops, Stegosaurus, woolly mammoth and more.</p></div></div>
+        <div class="pack"><img src="assets/pack-mythic.png" alt="Mythic &amp; Magic pack — 20 stained-glass pictures" /><div class="body"><h3>Mythic &amp; Magic</h3><p>20 stained-glass dragons, unicorns, mermaids, fairies &amp; phoenixes. Pure sparkle.</p></div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="parents">
+        <h2>Made for kids, trusted by parents</h2>
+        <p class="sub" style="margin-bottom:0">No surprises — just a cozy place to color.</p>
+        <div class="checks">
+          <div class="check"><span class="tick">✓</span><span><b>No ads.</b> Ever. No banners, no video ads, no pop-ups.</span></div>
+          <div class="check"><span class="tick">✓</span><span><b>No tracking.</b> No analytics, no third-party data collection.</span></div>
+          <div class="check"><span class="tick">✓</span><span><b>Works offline.</b> Perfect for trips, planes and waiting rooms.</span></div>
+          <div class="check"><span class="tick">✓</span><span><b>No accounts.</b> No sign-in, no email — nothing leaves the device.</span></div>
+          <div class="check"><span class="tick">✓</span><span><b>Parental gate.</b> A grown-up check stands in front of every purchase.</span></div>
+          <div class="check"><span class="tick">✓</span><span><b>Fair by design.</b> In-game coins are earned by playing — never bought.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="links"><a href="/privacy">Privacy Policy</a> <a href="mailto:pixlpaintapp@gmail.com">Contact</a></div>
+      <div>© 2026 Adam Jara · PixlPaint · Made for iPad</div>
+    </footer>
+
+  </div>
+</body>
+</html>
